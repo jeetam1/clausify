@@ -1,4 +1,3 @@
-# clausify/settings.py
 from pathlib import Path
 from dotenv import load_dotenv
 import os
@@ -6,7 +5,7 @@ import os
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'change-me-in-production')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'change-me')
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 
