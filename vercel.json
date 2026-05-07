@@ -2,18 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "clausify/wsgi.py",
+      "src": "manage.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "clausify/wsgi.py"
+      "dest": "manage.py"
     }
   ]
 }
