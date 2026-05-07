@@ -8,7 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'change-me')
 DEBUG = True
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.vercel.app",
+]
 INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'summarizer',
