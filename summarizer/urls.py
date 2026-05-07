@@ -1,6 +1,6 @@
 # summarizer/urls.py
 from django.urls import path
-from ..clausify.summarized import views
+from summarizer import views
 
 urlpatterns = [
     path('', views.index, name='index'),
