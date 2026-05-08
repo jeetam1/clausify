@@ -12,8 +12,13 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.vercel.app",
 ]
 INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes', # <--- Make sure this is here
+    'django.contrib.sessions',
+    'django.contrib.messages',
     'django.contrib.staticfiles',
-    'summarizer',
+    'summarizer', # Your local app
 ]
 
 MIDDLEWARE = [
