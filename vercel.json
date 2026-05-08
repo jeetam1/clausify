@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "clausify/wsgi.py",
+      "src": "clausify/clausify/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "clausify/wsgi.py"
+      "dest": "clausify/clausify/wsgi.py"
     }
   ]
 }
