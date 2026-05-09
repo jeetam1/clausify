@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clausify — T&C Summarizer</title>
+
+    {% load static %}
+
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- ─────────────────────────────────────
+         NAVBAR
+    ───────────────────────────────────── -->
+    <header class="navbar">
+
+        <a href="/" class="navbar-brand">
+    <span class="dot"></span>
+    Clausify
+</a>
+
+        <div class="nav-actions">
+
+            <button id="themeToggle" class="theme-toggle">
+                🌙 <br>
+            </button>
+
+            <a href="#summarizer" class="nav-btn">
+                Try it free
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ─────────────────────────────────────
+         HERO SECTION
+    ───────────────────────────────────── -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="hero-eyebrow">
+
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#c85a2a"/>
+                </svg>
+
+                AI-powered legal clarity
+
+            </div>
+
+            <h1>
+                Stop <em>ignoring</em> what you agree to
+            </h1>
+
+            <p class="hero-sub">
+                Clausify reads dense Terms &amp; Conditions so you don't have to.
+                Paste any URL and get a plain-English summary in seconds.
+            </p>
+
+            <a href="#summarizer" class="hero-cta">
+
+                Summarize a page
+
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+
+            </a>
+
+        </div>
+
+
+        <!-- HERO CARD -->
+        <div class="hero-visual">
+
+            <div class="mock-card">
+
+                <div class="mock-card-header">
+
+                    <div class="mock-favicon">
+
+                        <svg viewBox="0 0 16 16" width="16" height="16" fill="none">
+                            <rect width="16" height="16" rx="4" fill="#1d8e75"/>
+                            <path d="M4 8h8M8 4v8"
+                                  stroke="#fff"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"/>
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <div class="mock-domain">
+                            example-service.com
+                        </div>
+
+                        <div class="mock-url">
+                            example-service.com/terms
+                        </div>
+                    </div>
+
+                    <span class="mock-tag">
+                        Analyzed
+                    </span>
+
+                </div>
+
+
+                <div class="mock-item">
+
+                    <div class="mock-icon warn">
+                        ⚠
+                    </div>
+
+                    <div>
+
+                        <div class="mock-item-title">
+                            Data sold to third parties
+                        </div>
+
+                        <div class="mock-item-text">
+                            Your browsing data may be shared with advertising
+                            partners without explicit consent.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mock-item">
+
+                    <div class="mock-icon ok">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <div class="mock-item-title">
+                            You can delete your account
+                        </div>
+
+                        <div class="mock-item-text">
+                            A full account deletion option is available
+                            in settings at any time.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mock-item">
+
+                    <div class="mock-icon info">
+                        i
+                    </div>
+
+                    <div>
+
+                        <div class="mock-item-title">
+                            Jurisdiction: California
+                        </div>
+
+                        <div class="mock-item-text">
+                            Disputes are governed by California law
+                            and handled in SF courts.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ─────────────────────────────────────
+         STATS BAR
+    ───────────────────────────────────── -->
+    <div class="stats-bar">
+
+        <div>
+            <div class="stat-num">2.4s</div>
+            <div class="stat-label">Average summary time</div>
+        </div>
+
+        <div>
+            <div class="stat-num">50k+</div>
+            <div class="stat-label">Pages analyzed</div>
+        </div>
+
+        <div>
+            <div class="stat-num">98%</div>
+            <div class="stat-label">Accuracy rate</div>
+        </div>
+
+    </div>
+
+
+    <!-- ─────────────────────────────────────
+         FEATURES
+    ───────────────────────────────────── -->
+    <section class="features">
+
+        <div class="section-label">
+            Why Clausify
+        </div>
+
+        <div class="section-title">
+            Everything you need to stay informed
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon" style="background:#f5ede7">
+                    ⚡
+                </div>
+
+                <h3>Instant results</h3>
+
+                <p>
+                    Our AI processes even the longest Terms &amp; Conditions
+                    documents in under three seconds.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon" style="background:#e1f5ee">
+                    🔍
+                </div>
+
+                <h3>Key clause detection</h3>
+
+                <p>
+                    Flags hidden auto-renewals, data sharing clauses,
+                    and rights you unknowingly grant.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon" style="background:#e6f1fb">
+                    📋
+                </div>
+
+                <h3>Plain English output</h3>
+
+                <p>
+                    No legal jargon. Just clear, structured points
+                    you can actually understand and act on.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ─────────────────────────────────────
+         SUMMARIZER
+    ───────────────────────────────────── -->
+    <section id="summarizer" class="summarizer">
+
+        <div class="summarizer-inner">
+
+            <div class="section-label">
+                Try it now
+            </div>
+
+            <h2>
+                Paste any URL to get started
+            </h2>
+
+            <p class="summarizer-desc">
+                Works on any website with a Terms of Service,
+                Privacy Policy, or EULA page.
+            </p>
+
+
+            <!-- INPUT -->
+            <div class="input-group">
+
+                <input
+                    id="urlInput"
+                    type="url"
+                    placeholder="https://example.com/terms-and-conditions"
+                    autocomplete="off"
+                />
+
+                <button onclick="summarize()" id="summarizeBtn">
+                    Summarize →
+                </button>
+
+            </div>
+
+
+            <!-- LOADER -->
+            <div id="loading" class="loader">
+                <div class="loader-bar"></div>
+            </div>
+
+
+            <!-- OUTPUT -->
+            <div class="output-wrap">
+
+                <div class="output-header">
+
+                    <span class="output-label">
+                        Summary
+                    </span>
+
+                    <span class="output-status" id="statusBadge">
+
+                        <span class="status-dot"></span>
+
+                        Ready
+
+                    </span>
+
+                </div>
+
+
+                <div id="outputBox">
+
+                    <span style="color:var(--text-faint);font-size:0.88rem">
+
+                        Your summary will appear here after
+                        you enter a URL above.
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ─────────────────────────────────────
+         FOOTER
+    ───────────────────────────────────── -->
+    <footer>
+        &copy; 2025 Clausify.
+        Built to make the web more transparent.
+    </footer>
+
+
+    <!-- SCRIPT -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

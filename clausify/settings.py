@@ -50,7 +50,10 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',           # Add this
                 'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',         # Add this (Fixes E402)
+                'django.contrib.messages.context_processors.messages', # Add this (Fixes E404)
             ],
         },
     },
