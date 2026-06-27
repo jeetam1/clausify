@@ -5,10 +5,12 @@ from bs4 import BeautifulSoup
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import ensure_csrf_cookie
 from django.conf import settings
 import anthropic
 
 
+@ensure_csrf_cookie
 def index(request):
     return render(request, 'summarizer/index.html')
 
@@ -91,7 +93,7 @@ Document text:
 {text_to_analyze}"""
 
         message = client.messages.create(
-            model='claude-opus-4-5',
+            model='claude-3-5-sonnet-20240620',
             max_tokens=1024,
             messages=[{'role': 'user', 'content': prompt}]
         )
