@@ -11,6 +11,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
@@ -93,13 +95,7 @@
 
                     <div class="mock-favicon">
 
-                        <svg viewBox="0 0 16 16" width="16" height="16" fill="none">
-                            <rect width="16" height="16" rx="4" fill="#1d8e75"/>
-                            <path d="M4 8h8M8 4v8"
-                                  stroke="#fff"
-                                  stroke-width="1.5"
-                                  stroke-linecap="round"/>
-                        </svg>
+                        <img src="{% static 'favicon.png' %}" alt="Clausify Logo" style="width: 20px; height: 20px; object-fit: contain; border-radius: 4px;">
 
                     </div>
 
