@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.conf import settings
-import anthropic
+import google.generativeai as genai
 
 
 @ensure_csrf_cookie
@@ -20,7 +20,7 @@ def summarize(request):
     """
     1. Receive URL from frontend (JSON body)
     2. Scrape the page text with requests + BeautifulSoup
-    3. Send text to Claude with a clear prompt
+    3. Send text to Gemini with a clear prompt
     4. Return structured JSON summary to frontend
     """
     try:
@@ -60,8 +60,9 @@ def summarize(request):
                 status=400
             )
 
-        # ── Step 2: Call Claude API ───────────────────────────────────
-        client = anthropic.Anthropic(api_key=settings.ANTHROPIC_API_KEY)
+        # ── Step 2: Call Gemini API ───────────────────────────────────
+        genai.configure(api_key=settings.GEMINI_API_KEY)
+        model = genai.GenerativeModel('gemini-1.5-flash')
 
         prompt = f"""You are a legal document analyst. A user has pasted the text of a Terms & Conditions, Privacy Policy, or similar legal document.
 
@@ -92,13 +93,8 @@ Rules:
 Document text:
 {text_to_analyze}"""
 
-        message = client.messages.create(
-            model='claude-3-5-sonnet-20240620',
-            max_tokens=1024,
-            messages=[{'role': 'user', 'content': prompt}]
-        )
-
-        raw_response = message.content[0].text.strip()
+        result = model.generate_content(prompt)
+        raw_response = result.text.strip()
 
         # Strip any accidental markdown code fences
         if raw_response.startswith('```'):
@@ -113,7 +109,5 @@ Document text:
 
     except json.JSONDecodeError:
         return JsonResponse({'error': 'AI returned an unexpected format. Please try again.'}, status=500)
-    except anthropic.APIError as e:
-        return JsonResponse({'error': f'AI API error: {str(e)}'}, status=500)
     except Exception as e:
-        return JsonResponse({'error': f'Something went wrong: {str(e)}'}, status=500)
+        return JsonResponse({'error': f'Something went wrong: {str(e)}'}, status=500)

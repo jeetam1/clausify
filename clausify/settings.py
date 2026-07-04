@@ -66,4 +66,4 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY', '')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
