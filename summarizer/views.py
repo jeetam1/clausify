@@ -93,7 +93,7 @@ Document text:
 {text_to_analyze}"""
 
         result = client.models.generate_content(
-            model='gemini-2.0-flash',
+            model='gemini-2.5-flash',
             contents=prompt,
         )
         raw_response = result.text.strip()

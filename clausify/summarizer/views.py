@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.conf import settings
-import google.generativeai as genai
+from google import genai
 
 
 @ensure_csrf_cookie
@@ -61,8 +61,7 @@ def summarize(request):
             )
 
         # ── Step 2: Call Gemini API ───────────────────────────────────
-        genai.configure(api_key=settings.GEMINI_API_KEY)
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        client = genai.Client(api_key=settings.GEMINI_API_KEY)
 
         prompt = f"""You are a legal document analyst. A user has pasted the text of a Terms & Conditions, Privacy Policy, or similar legal document.
 
@@ -93,7 +92,10 @@ Rules:
 Document text:
 {text_to_analyze}"""
 
-        result = model.generate_content(prompt)
+        result = client.models.generate_content(
+            model='gemini-1.5-flash',
+            contents=prompt,
+        )
         raw_response = result.text.strip()
 
         # Strip any accidental markdown code fences
