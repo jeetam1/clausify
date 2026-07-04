@@ -61,6 +61,9 @@ def summarize(request):
             )
 
         # ── Step 2: Call Gemini API ───────────────────────────────────
+        if not settings.GEMINI_API_KEY:
+            return JsonResponse({'error': 'GEMINI_API_KEY is missing or empty in Vercel environment variables. Please check your Vercel project settings.'}, status=500)
+            
         client = genai.Client(api_key=settings.GEMINI_API_KEY)
 
         prompt = f"""You are a legal document analyst. A user has pasted the text of a Terms & Conditions, Privacy Policy, or similar legal document.

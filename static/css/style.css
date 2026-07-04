@@ -836,7 +836,7 @@ body.dark .summarizer-inner {
 
   font-size: 0.95rem;
 
-  color: #ffffff;
+  color: var(--text);
 
   line-height: 1.8;
 
@@ -983,4 +983,16 @@ body.dark #outputBox {
     width: 100%;
   }
 
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  background: var(--card);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
